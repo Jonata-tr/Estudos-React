@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 2rem;
+}
+
+
+.imgs{
+    margin: 1rem 0;
+}
+
+img{
+    width: 200px;
+}
+
+.imgs {
+    display: flex;
+    gap: 2rem;
+}
+
+.voos{
+    color: brown;
+}
+
+.margin:not(:first-of-type) {
+    margin-bottom: 2rem;
+}
+
+.ImageList{
+    margin-top: 1rem;
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 200px;
+    height: fit-content;
+}
+
+.aaa{
+    display: grid;
+    grid-template-columns: 210px auto;
+    grid-template-rows: 170px 1px;
+}
