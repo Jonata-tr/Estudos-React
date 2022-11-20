@@ -33,10 +33,6 @@ const lista = [
     ]}
 ]
 
-const images = {
-    image1
-}
-
 // Primeiro fazer a function que renderiza tudo
 // Depois fazer a function que leva o conteudo que vai ser renderizado
 
@@ -83,7 +79,7 @@ function ShowImagesDetails({details}) {
     return(
         <li>
         {details.map(detail => (
-            <img src={detail.img}/>
+            <img src={detail.img} alt=''/>
             ))}
         </li> 
     )

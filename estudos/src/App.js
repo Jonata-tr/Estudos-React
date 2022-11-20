@@ -1,10 +1,12 @@
 import './style.css'
 import Voo from './voo'
 import Render from './ImageList'
+import LittleDiv from './littleDiv';
 
 function App() {
   return (
     <div className="App">
+      <Button content="clica em mim por favor"/>
       <h1>Hello World!</h1>
       <h1>Hello World!</h1>
       <List />
@@ -12,8 +14,33 @@ function App() {
       <Voo/>
       <Receptor/>
       <Render />
+      <LittleDiv />
     </div>
   );
+}
+
+function Button(props) {
+  const handleClick = () => {
+    const btn = document.querySelector('button')
+    const body = document.querySelector('body')
+    if(body.style.background === 'lightcoral'){
+      body.style.background = '#fff'
+      btn.style.background = 'lightcoral'
+    } else {
+      body.style.background = 'lightcoral'
+      btn.style.background = '#fff'
+    }
+  }
+
+  return(
+    <button 
+      style={{padding: ".5rem 2rem"}}
+      type='submite' 
+      onClick={handleClick}
+    >
+      {props.content}
+    </button>
+  )
 }
 
 const ListItem = (props) => {
@@ -48,17 +75,17 @@ function ListaImg(){
   ]
   
   return(
-    <ul className='imgs'>
+    <div className='imgs'>
       {imgs.map(valor => {
         return <ListImages key={valor} conteudo={valor}/>
       } )}
-    </ul>
+    </div>
   )
 }
 
 const ListImages = (props) => {
   return(
-    <li><img src={props.conteudo} alt=''/></li>
+    <img src={props.conteudo} alt=''/>
   )
 }
 
@@ -122,7 +149,7 @@ const exemploDeCoisas = [
 
 function Receptor(itens) {
   return(
-    <div>
+    <div className='stringTest'>
       {exemploDeCoisas.map((itens) => (
         <FuncaoTrue key={itens.id} id={itens.id} nome={itens.nome} details={itens.details} />
       ))}
@@ -132,11 +159,11 @@ function Receptor(itens) {
 
 function FuncaoTrue(props) {
   return(
-    <section>
-      <h1>{props.id}</h1>
-      <h2>{props.nome}</h2>
-      <ListDetails details={props.details}/>
-    </section>
+      <div >
+        <h1>{props.id}</h1>
+        <h2>{props.nome}</h2>
+        <ListDetails details={props.details}/>
+      </div>
   )
 }
 
@@ -145,11 +172,20 @@ function ListDetails({details}) {
    <ul>
      {details.map(lista => (
       <li>
-        {lista.idDetails}/\/\
-        {lista.nome}/\/\
+        {lista.idDetails}
+      </li>        
+    ))}
+     {details.map(lista => (
+      <li>
+        {lista.nome}
+      </li>        
+    ))}
+     {details.map(lista => (
+      <li>
         {lista.local}
-      </li>
-    ))}  
+      </li>        
+    ))}
+
    </ul>
   )
 }
