@@ -30,12 +30,23 @@ const list = [
   },
 ];
 
-function LittleDiv() {
+function LittleDiv(props) {
+
+  return (
+      <DivContent name={props.details}/>
+  );
+}
+
+function DivContent(props) {
+  let teste
   const handleClick = (number) => {
     const bgBody = document.querySelector(".littleDiv");
+    const nameHolder = document.querySelector("nome")
+    console.log(list)
     switch (number) {
       case 1:
         bgBody.style.backgroundImage = `url(${anime1})`;
+        teste = 'SoloLeveling'
         break;
       case 2:
         bgBody.style.backgroundImage = `url(${anime2})`;
@@ -53,8 +64,10 @@ function LittleDiv() {
     }
   };
 
-  return (
+
+  return(
     <section className="littleDiv">
+        <h1 id='nome'>{teste}</h1>
       <div className="background">
         {list.map((img) => (
           <img
@@ -67,7 +80,7 @@ function LittleDiv() {
         ))}
       </div>
     </section>
-  );
+  )
 }
 
 export default LittleDiv;
